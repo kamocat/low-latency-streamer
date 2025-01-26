@@ -55,6 +55,10 @@ Whatever the reason, this project is here to make your life easier (and more ent
 
 If this project helped you, or if you just enjoyed the peanut jokes, give this repo a ⭐! And remember, if you’re still reading, maybe it’s time to start building that streaming app you’ve been dreaming about? 😉  
 
+If you want to read more about this project, follow this link 
+
+https://medium.com/@praveen06061995/low-latency-video-streaming-application-with-fastapi-4c69f5124fda
+
 Happy Streaming! 🎉  
 
 ---  

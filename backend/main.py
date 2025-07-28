@@ -201,21 +201,19 @@ async def stream_kvm(websocket: WebSocket) -> Optional[bytes]:
     """
     await websocket.accept()
 
-    kvm_device_name = "video_capture_device"
+    kvm_device_name = "video0"
 
     if not kvm_device_name:
         BACKEND_LOGGER.error("KVM not found, closing the connection.")
         await websocket.close()
         return
 
-    ffmpeg_executable_location = os.path.join("D:", "my_software",
-                                              "ffmpeg", "ffmpeg-static-win64-gpl",
-                                              "bin", "ffmpeg.exe")
+    ffmpeg_executable_location = "/usr/bin/ffmpeg"
 
     ffmpeg_command = [
         ffmpeg_executable_location,
-        '-f', 'dshow',
-        '-i', 'video=' + kvm_device_name,
+        '-f', 'v4l2',
+        '-i', '/dev/' + kvm_device_name,
         '-s', '1920x1080',
         '-c:v', 'libx264',
         '-preset', 'ultrafast',
